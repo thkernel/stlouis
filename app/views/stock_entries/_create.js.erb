@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @stock_entry.errors.any? %>
+  <% @stock_entry.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".stock-entries").html("<%= escape_javascript(render 'index') %>");
+  $("#stock-entry-modal").modal("hide");
+ 
+<% end %>

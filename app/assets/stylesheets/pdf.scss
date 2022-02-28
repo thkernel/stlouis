@@ -1,0 +1,40 @@
+.content-border{
+	border: 2px solid black;
+}
+.request-title{
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 30px;
+	font-size: 1.6em;
+	text-align: center;
+	text-decoration: underline;
+}
+.request-body{
+	padding: 30px;
+	font-size: 1.4em;
+}
+.request-signature{
+	margin-top: 5px;
+	font-weight: bold;
+	text-decoration: underline;
+	font-size: 1.3em;
+}
+.request-field{
+	font-weight: bold;
+}
+.request-footer{
+	margin-top: 30px !important;
+}
+.request-body-line{
+	margin-bottom: 5px;
+}
+table {
+	width: 100%;
+}
+
+.heading, .total{
+	background-color: #aca7a7;
+}
+.information{
+	margin-top: 20px;
+}

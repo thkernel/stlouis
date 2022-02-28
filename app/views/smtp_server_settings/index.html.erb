@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Smtp Server Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Host name</th>
+      <th>User name</th>
+      <th>User password</th>
+      <th>Domain</th>
+      <th>Port</th>
+      <th>Authentication</th>
+      <th>Enable starttls auto</th>
+      <th>Ssl</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smtp_server_settings.each do |smtp_server_setting| %>
+      <tr>
+        <td><%= smtp_server_setting.uid %></td>
+        <td><%= smtp_server_setting.host_name %></td>
+        <td><%= smtp_server_setting.user_name %></td>
+        <td><%= smtp_server_setting.user_password %></td>
+        <td><%= smtp_server_setting.domain %></td>
+        <td><%= smtp_server_setting.port %></td>
+        <td><%= smtp_server_setting.authentication %></td>
+        <td><%= smtp_server_setting.enable_starttls_auto %></td>
+        <td><%= smtp_server_setting.ssl %></td>
+        <td><%= smtp_server_setting.account %></td>
+        <td><%= link_to 'Show', smtp_server_setting %></td>
+        <td><%= link_to 'Edit', edit_smtp_server_setting_path(smtp_server_setting) %></td>
+        <td><%= link_to 'Destroy', smtp_server_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smtp Server Setting', new_smtp_server_setting_path %>

@@ -1,0 +1,20 @@
+<% @time_units.each do |time_unit| %>
+  <tr>
+    
+    <td><%= time_unit.name %></td>
+   
+    <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_time_unit_path(time_unit), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), time_unit_delete_path(time_unit), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+
+  <% end %>

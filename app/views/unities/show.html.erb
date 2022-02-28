@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unity.name %>
+</p>
+
+<p>
+  <strong>Unity symbol:</strong>
+  <%= @unity.unity_symbol %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @unity.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @unity.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @unity.user %>
+</p>
+
+<%= link_to 'Edit', edit_unity_path(@unity) %> |
+<%= link_to 'Back', unities_path %>

@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: stock_movements
+#
+#  id            :bigint           not null, primary key
+#  uid           :string
+#  movement_type :string
+#  product_id    :bigint
+#  unity_id      :bigint
+#  quantity      :float
+#  description   :text
+#  account_id    :bigint
+#  status        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  movement_type: MyString
+  product: one
+  unity: one
+  quantity: 1.5
+  description: MyText
+  account: one
+  status: MyString
+
+two:
+  uid: MyString
+  movement_type: MyString
+  product: two
+  unity: two
+  quantity: 1.5
+  description: MyText
+  account: two
+  status: MyString

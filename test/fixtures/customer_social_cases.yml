@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: customer_social_cases
+#
+#  id           :bigint           not null, primary key
+#  uid          :string
+#  customer_id  :bigint
+#  dish_number  :integer
+#  time_unit_id :bigint
+#  status       :string
+#  account_id   :bigint
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  customer: one
+  dish_number: 1
+  time_unit: one
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  customer: two
+  dish_number: 1
+  time_unit: two
+  status: MyString
+  account: two

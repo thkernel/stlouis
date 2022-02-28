@@ -1,0 +1,17 @@
+<% @recharge_fidelity_cards.each do |recharge_fidelity_card| %>
+      <tr>
+      	<td><%= recharge_fidelity_card.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= recharge_fidelity_card.fidelity_card.uid %></td>
+        <td><%= recharge_fidelity_card.amount %></td>
+        <td><%= recharge_fidelity_card.status %></td>
+        <td>
+        <div class="action-buttons">
+           
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), recharge_fidelity_card_delete_path(recharge_fidelity_card), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

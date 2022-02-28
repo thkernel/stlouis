@@ -1,0 +1,2 @@
+module FidelityCardsHelper
+end

@@ -1,0 +1,25 @@
+<% @fidelity_cards.each do |fidelity_card| %>
+  <tr>
+  	<td><%= fidelity_card.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= fidelity_card.uid %></td>
+    <td><%= fidelity_card.balance %></td>
+    <td><%= fidelity_card.status %></td>
+  
+    <td>
+         <div class="action-buttons">
+                    
+<% if can? :update, FidelityCard %>
+<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'),  edit_fidelity_card_path(fidelity_card), title: "Modifier", remote: true %>
+<% end %>
+
+<% if can? :destroy, FidelityCard %>
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), fidelity_card_delete_path(fidelity_card), remote: true, title: "Supprimer", class: "delete" %>
+<% end %>
+
+</div>
+</td>
+  </tr>
+<% end %>

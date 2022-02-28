@@ -1,0 +1,32 @@
+
+    <div class="row pd-15">
+        <!-- Stats par banques -->
+        <div class="col-md-6">
+            <div class="content">
+                <div class="content-title">
+                    <h5>Quantité partielle</h5>
+                </div>
+                <div class="content-body">
+                    <%= pie_chart @partial_food_chart_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "bankk", adapter: "highcharts" %>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Stats par banques -->
+        <div class="col-md-6">
+            <div class="content">
+                <div class="content-title">
+                    <h5>Quantité totale</h5>
+                </div>
+                <div class="content-body">
+                    <%= pie_chart @total_food_chart_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "bankkk", adapter: "highcharts" %>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+

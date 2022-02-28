@@ -1,0 +1,38 @@
+<% @orders.each do |order| %>
+  <tr>
+     <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= order.uid %></td>
+     
+   
+    <td><%= order.customer.customer_name %></td>
+    <td><%= order.table.name if order.table.present? %></td>
+    <td><%= number_to_currency order.total, unit: "", seperator: ",", delimiter: " " %></td>
+    <td><span class="order_payment_status_<%= order.paid.parameterize %>"><%= order.paid %></span></td>
+    <td><%= order.payment_method %></td>
+    <td><span class="order_status_<%= order.status.parameterize %>"><%= order.status %></span></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    
+
+<div class="action-buttons">
+    <% if can? :show, Order %>
+        <%= link_to raw('<i class="fa fa-eye" aria-hidden="true"></i>
+'), show_order_path(uid: order.uid), title: "Voir", remote: false %>
+<% end %>
+
+<%= link_to raw('<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      '), generate_pdf_path(uid: order.uid, format: :pdf), remote: false, title: "Télécharger" %>
+
+
+<% if unconfirmed_order?(order) %>
+    <% if can? :destroy, Order %>
+        <%= link_to raw('<i class="fa fa-ban" aria-hidden="true"></i>
+    '), get_cancel_path(uid: order.uid), remote: true, title: "Annuler", class: "delete" %>
+    <% end %>
+
+<% end %>
+</div>
+</td>
+  </tr>
+<% end %>

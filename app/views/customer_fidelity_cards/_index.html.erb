@@ -1,0 +1,21 @@
+<% @customer_fidelity_cards.each do |customer_fidelity_card| %>
+      <tr>
+       <td><%= customer_fidelity_card.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= customer_fidelity_card.customer.customer_name %></td>
+        <td><%= customer_fidelity_card.fidelity_card.uid %></td>
+        <td><%= customer_fidelity_card.status %></td>
+        
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_customer_fidelity_card_path(customer_fidelity_card), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), customer_fidelity_card_delete_path(customer_fidelity_card), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

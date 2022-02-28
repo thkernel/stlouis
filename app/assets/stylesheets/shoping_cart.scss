@@ -1,0 +1,100 @@
+#mini-cart .cart-head {
+    position: relative;
+    cursor: pointer;
+    margin-top: 0;
+    min-width: 45px;
+    text-align: center;
+}
+
+#header.sticky-header #mini-cart.minicart-arrow-alt {
+    top: 0;
+    right: 0;
+}
+#header.sticky-header #mini-cart.minicart-arrow, #header.sticky-header #mini-cart.minicart-arrow-alt {
+    margin-top: -24px !important;
+}
+.main-menu-wrap .menu-right #mini-cart {
+    position: relative;
+    margin-top: -16px;
+}
+#mini-cart.minicart-arrow-alt {
+    margin-top: -26px;
+}
+#mini-cart.minicart-arrow, #mini-cart.minicart-arrow-alt {
+    position: relative;
+    height: 41px;
+    line-height: 41px;
+}
+#mini-cart {
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    right: 0;
+    height: 45px;
+    margin: -22px auto;
+    white-space: normal;
+}
+
+header.sticky-header #mini-cart.minicart-arrow .cart-items, #header.sticky-header #mini-cart.minicart-arrow-alt .cart-items {
+    left: 27px;
+}
+.main-menu-wrap .menu-right #mini-cart .cart-items {
+    color: #08c;
+}
+#mini-cart.minicart-arrow-alt .cart-items {
+    left: 28px;
+    top: -1px;
+    background-color: #ff5b5b;
+}
+#mini-cart.minicart-arrow .cart-items, #mini-cart.minicart-arrow-alt .cart-items {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    color: #ffffff !important;
+    line-height: 16px;
+    border-radius: 20px;
+}
+#mini-cart .cart-head3 .cart-items {
+    top: 9px;
+    left: 2px;
+    font-size: 13px;
+}
+#mini-cart .cart-items {
+    color: #fff;
+}
+#mini-cart .cart-items {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 600;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    top: 10px;
+    text-align: center;
+    display: inline-block;
+    height: 22px;
+    overflow: hidden;
+}
+
+#header.sticky-header #mini-cart.minicart-arrow-alt .minicart-icon {
+    font-size: 23px;
+}
+.main-menu-wrap .menu-right #mini-cart .minicart-icon {
+    color: #fff;
+}
+#mini-cart.minicart-arrow-alt .minicart-icon {
+    font-size: 33px;
+}
+#mini-cart .minicart-icon {
+    color: #3d7cb5;
+}
+#mini-cart .minicart-icon3 {
+    margin-left: -8px;
+}
+#mini-cart .minicart-icon {
+    font-size: 36px;
+    vertical-align: middle;
+    display: inline-block;
+}

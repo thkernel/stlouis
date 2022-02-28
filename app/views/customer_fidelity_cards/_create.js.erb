@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @customer_fidelity_card.errors.any? %>
+  <% @customer_fidelity_card.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".customer-fidelity-cards").html("<%= escape_javascript(render 'index') %>");
+  $("#customer-fidelity-card-modal").modal("hide");
+ 
+<% end %>

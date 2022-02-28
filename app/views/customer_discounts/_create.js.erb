@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @customer_discount.errors.any? %>
+  <% @customer_discount.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".customer-discounts").html("<%= escape_javascript(render 'index') %>");
+  $("#customer-discount-modal").modal("hide");
+ 
+<% end %>

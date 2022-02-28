@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @stock_entry.uid %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @stock_entry.product %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @stock_entry.reason %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @stock_entry.quantity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stock_entry.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @stock_entry.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @stock_entry.account %>
+</p>
+
+<%= link_to 'Edit', edit_stock_entry_path(@stock_entry) %> |
+<%= link_to 'Back', stock_entries_path %>

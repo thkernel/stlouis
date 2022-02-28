@@ -1,0 +1,24 @@
+<section class="products">
+    <div class="container">
+        <div class="heading-text heading-section text-center">
+            <h3>Notre menu</h3>
+        </div>
+       <div class="row">
+
+		<% @foods.each do |food| %>
+
+            <div class="col-md-3 product-item mg-t-20">	
+               <%= render "shared/food/single_food" , food: food %>
+			</div>
+		<% end %> 
+	</div>
+
+	
+
+  <div class="text-center">
+   
+    <%= link_to "Voir plus", shop_path, class: "btn btn-outline-primary"%>
+  </div>
+       
+    </div>
+</section>

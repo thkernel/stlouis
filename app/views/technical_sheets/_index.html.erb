@@ -1,0 +1,19 @@
+<% @technical_sheets.each do |technical_sheet| %>
+      <tr>
+       
+        <td><%= technical_sheet.food.name %></td>
+        
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_technical_sheet_path(technical_sheet), title: "Modifier", remote: false %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), technical_sheet_delete_path(technical_sheet), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

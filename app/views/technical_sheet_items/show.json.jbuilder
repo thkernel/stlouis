@@ -1,0 +1,1 @@
+json.partial! "restoration_technical_sheet_items/restoration_technical_sheet_item", restoration_technical_sheet_item: @restoration_technical_sheet_item

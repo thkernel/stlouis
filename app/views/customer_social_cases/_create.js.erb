@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @customer_social_case.errors.any? %>
+  <% @customer_social_case.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".customer-social-cases").html("<%= escape_javascript(render 'index') %>");
+  $("#customer-social-case-modal").modal("hide");
+ 
+<% end %>

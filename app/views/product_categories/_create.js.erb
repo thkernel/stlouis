@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @product_category.errors.any? %>
+  <% @product_category.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".product-categories").html("<%= escape_javascript(render 'index') %>");
+  $("#product-category-modal").modal("hide");
+ 
+<% end %>

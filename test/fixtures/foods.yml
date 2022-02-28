@@ -1,0 +1,42 @@
+# == Schema Information
+#
+# Table name: foods
+#
+#  id               :bigint           not null, primary key
+#  uid              :string
+#  slug             :string
+#  food_category_id :bigint
+#  name             :string
+#  min_cooking_time :time
+#  max_cooking_time :time
+#  price            :float
+#  descriptions     :string
+#  status           :string
+#  account_id       :bigint
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  slug: MyString
+  name: MyString
+  min_cooking_time: 2022-01-12 12:16:15
+  max_cooking_time: 2022-01-12 12:16:15
+  price: 9.99
+  descriptions: MyString
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  slug: MyString
+  name: MyString
+  min_cooking_time: 2022-01-12 12:16:15
+  max_cooking_time: 2022-01-12 12:16:15
+  price: 9.99
+  descriptions: MyString
+  status: MyString
+  account: two

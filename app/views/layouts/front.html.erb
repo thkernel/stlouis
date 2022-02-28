@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "#{APPLICATION_NAME}" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      			<%= javascript_include_tag Ckeditor.cdn_url %>
+            <%= render 'layouts/partials/tawk' %>
+
+  </head>
+
+  <body>
+  		<%= render :partial => 'layouts/partials/flash_messages', :flash => flash %>
+
+    <%= render('layouts/partials/front/header') %>
+    <div class="page-wrapper">
+      <%= yield %>
+    </div>
+    <%= render('layouts/partials/front/footer') %>
+      
+
+  </body>
+</html>

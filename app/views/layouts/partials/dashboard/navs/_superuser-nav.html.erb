@@ -1,0 +1,228 @@
+<!-- ########## START: LEFT PANEL ########## -->
+
+      <ul class="br-sideleft-menu">
+       <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-home tx-20"></i> <span class="menu-item-label">Tableau de bord</span>'), dashboard_path, class: "br-menu-link #{current? "active", dashboard_path}" %>
+        </li><!-- br-menu-item -->
+
+        
+
+         
+      <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-shopping-basket tx-20"></i>
+            <span class="menu-item-label">Caisse</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Commandes", orders_path, class: "sub-link #{current? "active", fidelity_cards_path}" %>
+            </li>
+
+           
+             
+          </ul>
+        </li>
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-id-card-o tx-20"></i>
+            <span class="menu-item-label">Cartes de fidélité</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Cartes", fidelity_cards_path, class: "sub-link #{current? "active", fidelity_cards_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Attributions", customer_fidelity_cards_path, class: "sub-link #{current? "active", customer_fidelity_cards_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Recharges", recharge_fidelity_cards_path, class: "sub-link #{current? "active", recharge_fidelity_cards_path}" %>
+            </li>
+             
+          </ul>
+        </li>
+
+        <% if !shop_tenant? %>
+          <li class="br-menu-item">
+            <a href="#" class="br-menu-link with-sub">
+              <i class="fa fa-cutlery tx-20"></i>
+              <span class="menu-item-label">Plats</span>
+            </a><!-- br-menu-link -->
+            <ul class="br-menu-sub">
+              
+              <li class="sub-item">
+                  <%= link_to  "Catégories", food_categories_path, class: "sub-link #{current? "active", food_categories_path}" %>
+              </li>
+
+              <li class="sub-item">
+                  <%= link_to  "Plats", foods_path, class: "sub-link #{current? "active", foods_path}" %>
+              </li>
+               
+            </ul>
+          </li>
+        <% end %>
+
+        
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-cubes tx-20"></i>
+            <span class="menu-item-label">Produits</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            <li class="sub-item">
+                <%= link_to  "Catégories de produit", product_categories_path, class: "sub-link #{current? "active", product_categories_path}" %>
+            </li>
+
+            
+            <li class="sub-item">
+                <%= link_to  "Produits", products_path, class: "sub-link #{current? "active", products_path}" %>
+            </li>
+             <li class="sub-item">
+                <%= link_to  "Entrées stock", stock_entries_path, class: "sub-link #{current? "active", stock_entries_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Sorties stock", stock_exits_path, class: "sub-link #{current? "active", stock_exits_path}" %>
+            </li>
+          </ul>
+        </li>
+
+         
+
+
+        
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-users tx-20"></i>
+            <span class="menu-item-label">Tierces</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Clients", customers_path, class: "sub-link #{current? "active", customers_path}" %>
+            </li>
+             <li class="sub-item">
+                <%= link_to  "Fournisseurs",providers_path, class: "sub-link #{current? "active", providers_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Partenaires",partners_path, class: "sub-link #{current? "active", partners_path}" %>
+            </li>
+
+            
+          </ul>
+        </li>
+
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-newspaper-o tx-20"></i>
+            <span class="menu-item-label">Journaux</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+            
+            <li class="sub-item">
+                <%= link_to  "Commandes", search_orders_path, class: "sub-link #{current? "active", search_orders_path}" %>
+            </li>
+             
+          </ul>
+        </li>
+
+
+        <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-list-alt tx-20"></i> <span class="menu-item-label">Fiches techniques</span>'), technical_sheets_path, class: "br-menu-link #{current? "active", technical_sheets_path}" %>
+        </li>
+        
+         
+
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-cog tx-20"></i>
+            <span class="menu-item-label">Paramètres</span>
+          </a><!-- br-menu-link -->
+          <ul class="br-menu-sub">
+             
+           
+          
+            
+            <li class="sub-item">
+                <%= link_to  "Rôles", roles_path, class: "sub-link #{current? "active", roles_path}" %>
+            </li>
+
+             <li class="sub-item">
+                <%= link_to  "Droits d'accès", permissions_path, class: "sub-link #{current? "active", permissions_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Utilisateurs", all_accounts_path, class: "sub-link #{current? "active", all_accounts_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Unités", unities_path, class: "sub-link #{current? "active", unities_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Tables", tables_path, class: "sub-link #{current? "active", tables_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Clients & Remises", customer_discounts_path, class: "sub-link #{current? "active", tables_path}" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Gestes commerciaux", customer_social_cases_path, class: "sub-link #{current? "active", customer_social_cases_path}" %>
+            </li>
+
+           
+           
+
+             
+
+           
+          
+
+
+          
+
+
+
+          </ul>
+        </li>
+
+        <li class="br-menu-item">
+          <a href="#" class="br-menu-link with-sub">
+            <i class="fa fa-briefcase tx-20"></i>
+            <span class="menu-item-label">Utilitaires</span>
+          </a>
+          <ul class="br-menu-sub">
+            
+         
+        
+
+            <li class="sub-item">
+                <%= link_to  "Backup", show_backup_path,  data: { turbolinks: false }, class: "sub-link" %>
+            </li>
+
+            <li class="sub-item">
+                <%= link_to  "Logger", activity_logs_path, class: "sub-link #{current? "active", activity_logs_path}" %>
+            </li>
+
+
+            </ul>
+        </li>
+       
+      </ul><!-- br-sideleft-menu -->
+
+      
+       
+        
+      </div><!-- info-list -->
+
+    <!-- ########## END: LEFT PANEL ########## -->

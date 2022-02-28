@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: order_item_drinks
+#
+#  id         :bigint           not null, primary key
+#  order_id   :bigint
+#  product_id :bigint
+#  quantity   :float
+#  unit_price :float
+#  amount     :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order: one
+  product: one
+  quantity: 1.5
+  unit_price: 1.5
+  amount: 1.5
+
+two:
+  order: two
+  product: two
+  quantity: 1.5
+  unit_price: 1.5
+  amount: 1.5

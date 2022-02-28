@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @restoration_technical_sheet_item.uid %>
+</p>
+
+<p>
+  <strong>Restoration technical sheet:</strong>
+  <%= @restoration_technical_sheet_item.restoration_technical_sheet %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @restoration_technical_sheet_item.product %>
+</p>
+
+<p>
+  <strong>Unity:</strong>
+  <%= @restoration_technical_sheet_item.unity %>
+</p>
+
+<p>
+  <strong>Unity purchase cost excl tax:</strong>
+  <%= @restoration_technical_sheet_item.unity_purchase_cost_excl_tax %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @restoration_technical_sheet_item.quantity %>
+</p>
+
+<p>
+  <strong>Cost price excl tax:</strong>
+  <%= @restoration_technical_sheet_item.cost_price_excl_tax %>
+</p>
+
+<%= link_to 'Edit', edit_restoration_technical_sheet_item_path(@restoration_technical_sheet_item) %> |
+<%= link_to 'Back', restoration_technical_sheet_items_path %>

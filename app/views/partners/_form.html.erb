@@ -1,0 +1,64 @@
+<%= form_with(model: partner, local: false) do |form| %>
+  <div class="modal-body">
+  
+        <ul class="errors">
+        </ul>
+      
+   
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= form.label :company_name, "Raison sociale"  %>
+            <%= form.text_field :company_name, class: "form-control", placeholder: "Raison sociale" %>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="form-group">
+              <%= form.label :first_name, "Prénom" %>
+              <%= form.text_field :first_name, class: "form-control", placeholder: "Prénom" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :last_name, "Nom"  %>
+              <%= form.text_field :last_name, class: "form-control", placeholder: "Prénom" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :civility, "Civilité"  %>
+              <%= form.select :civility, CIVILITIES, {prompt: "Sélectionner"}, class: "form-control" %>
+            </div>
+
+
+            <div class="form-group">
+              <%= form.label :address, "Adresse" %>
+              <%= form.text_field :address, id: :customer_address, class: "form-control", placeholder: "Adresse" %>
+            </div>
+            
+            
+        </div>
+
+        <div class="col-sm-6">
+          <div class="form-group">
+              <%= form.label :city, "Ville", class: "required" %>
+              <%= form.text_field :city, id: :customer_city, class: "form-control", placeholder: "Ville", required: true %>
+            </div>
+
+
+          <div class="form-group">
+              <%= form.label :country, "Pays", class: "required" %>
+              <%= form.text_field :country, id: :customer_country, class: "form-control", placeholder: "Pays", required: true %>
+          </div>
+          <div class="form-group">
+            <%= form.label :phone, "Téléphone", class: "required" %>
+            <%= form.text_field :phone, id: :customer_phone, class: "form-control", placeholder: "Téléphone", required: true %>
+          </div>
+        </div>
+    </div>
+
+  </div><!-- modal body -->
+      <div class="modal-footer">
+        <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+        <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+  </div>
+<% end %>

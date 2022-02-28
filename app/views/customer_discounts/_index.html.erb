@@ -1,0 +1,19 @@
+<% @customer_discounts.each do |customer_discount| %>
+      <tr>
+        <td><%= customer_discount.customer.customer_name %></td>
+        <td><%= customer_discount.amount %></td>
+        
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_customer_discount_path(customer_discount), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), customer_discount_delete_path(customer_discount), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

@@ -1,0 +1,63 @@
+<%= form_with(model: product, local: false) do |form| %>
+ <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group customSelect">
+          <%= form.label :product_category_id, "Catégorie", class: "required"  %>
+          <%= form.collection_select(:product_category_id, @product_categories, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;", required: true) %> 
+        </div>
+
+         <div class="form-group">
+          <%= form.label :name, "Nom"  %>
+          <%= form.text_field :name, id: :product_name, class: "form-control", placeholder: "Nom", required: true %>
+        </div>
+
+        <div class="form-group customSelect">
+          <%= form.label :unity_id, "Unité", class: "required"  %>
+          <%= form.collection_select(:unity_id, @unities, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;", required: true) %> 
+
+        </div>
+
+      </div>
+
+       
+      <div class="col-md-6">
+         <div class="form-group customSelect">
+          <%= form.label :provider_id, "Fournisseur"  %>
+          <%= form.collection_select(:provider_id, @providers, :id, :provider_name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%;") %> 
+
+        </div>
+
+        <div class="form-group">
+            <%= form.label :unit_price,"P.U", class: "required"  %>
+            <%= form.number_field :unit_price, id: :product_unit_price , class: "form-control", placeholder: "Prix Unitaire", required: true %>
+        </div>
+
+         <div class="form-group">
+          <%= form.label :reorder_threshold, "Seuil de réaprovisionnement"  %>
+          <%= form.number_field :reorder_threshold, id: :product_reorder_threshold, class: "form-control", placeholder: "Seuil de réaprovisionnement" %>
+        </div>
+
+
+      </div>
+
+      
+
+    </div>
+   
+ 
+
+  
+
+
+ 
+
+  </div><!-- modal body -->
+  <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

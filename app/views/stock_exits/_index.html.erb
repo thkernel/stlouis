@@ -1,0 +1,22 @@
+<% @stock_exits.each do |stock_exit| %>
+      <tr>
+        <td><%= stock_exit.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= stock_exit.product.name %></td>
+        <td><%= stock_exit.reason %></td>
+        <td><%= stock_exit.quantity %></td>
+        <td><%= stock_exit.unity.name %></td>
+       
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_stock_exit_path(stock_exit), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), stock_exit_delete_path(stock_exit), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

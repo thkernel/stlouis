@@ -1,0 +1,43 @@
+<div class="col-lg-12">
+  <div class="card shadow-base bd-0 mg-t-20">
+              <div class="card-header pd-20 bg-transparent">
+                <h6 class="card-title tx-uppercase tx-12 mg-b-0">Dernières commandes</h6>
+              </div>
+              <table class="table table-responsive mg-b-0 tx-12">
+                <thead>
+                  <tr class="tx-10">
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Client</th>
+                    <th>Table</th>
+                    <th>Total</th>
+                    <th>Paiement</th>
+                    <th>Payée par</th>
+                    <th>Statut</th>
+                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @orders.each do |order| %>
+                    <tr>
+                      <td><%= order.id %></td>
+                      <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+                      <td><%= order.customer.customer_name %></td>
+                      <td><%= order.table.name if order.table.present? %></td>
+                      <td><%= order.total %></td>
+                      <td><%= order.paid %></td>
+                      <td><%= order.payment_method %></td>
+                      <td><%= order.status %></td>
+                      
+                    
+                    </tr>
+                  <% end %>
+                 
+                </tbody>
+              </table>
+              
+              <div class="card-footer tx-12 pd-y-15 bg-transparent">
+                
+              </div> <!-- card-footer -->
+            </div>
+</div>

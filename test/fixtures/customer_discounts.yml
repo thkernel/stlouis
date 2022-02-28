@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: customer_discounts
+#
+#  id          :bigint           not null, primary key
+#  uid         :string
+#  customer_id :bigint
+#  amount      :float
+#  status      :string
+#  account_id  :bigint
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  customer: one
+  amount: 1.5
+  status: MyString
+  account: one
+  description: MyText
+
+two:
+  uid: MyString
+  customer: two
+  amount: 1.5
+  status: MyString
+  account: two
+  description: MyText

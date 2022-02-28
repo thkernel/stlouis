@@ -1,0 +1,21 @@
+<% @foods.each do |food| %>
+  <tr>
+    <td><%= food.food_category.name %></td>
+    <td><%= food.name %></td>
+    <td><%= food.price %></td>
+    <td><%= food.status %></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_food_path(food), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), food_delete_path(food), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

@@ -1,0 +1,24 @@
+<% @products.each do |product| %>
+      <tr>
+        <td ><%= product.product_category.name %></td>
+        <td ><%= product.name %></td>
+       
+        <td ><%= product.unit_price %></td>
+        <td ><%= product.unity.name %></td>
+      <td><%= product.current_stock %></td>
+        <td><%= product.reorder_threshold %></td>
+        
+        <td>
+          <div class="action-buttons">
+          <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_product_path(product), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), product_delete_path(product), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

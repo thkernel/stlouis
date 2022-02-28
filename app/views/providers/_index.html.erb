@@ -1,0 +1,24 @@
+ <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.company_name %></td>
+        <td><%= provider.first_name %></td>
+        <td><%= provider.last_name %></td>
+        <td><%= provider.civility %></td>
+        <td><%= provider.city %></td>
+        <td><%= provider.country %></td>
+        <td><%= provider.phone %></td>
+       
+        <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_provider_path(provider), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), provider_delete_path(provider), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+<% end %>

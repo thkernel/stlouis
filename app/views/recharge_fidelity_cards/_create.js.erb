@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @recharge_fidelity_card.errors.any? %>
+  <% @recharge_fidelity_card.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".recharge-fidelity-cards").html("<%= escape_javascript(render 'index') %>");
+  $("#recharge-fidelity-card-modal").modal("hide");
+ 
+<% end %>

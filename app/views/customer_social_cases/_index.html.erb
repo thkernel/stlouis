@@ -1,0 +1,22 @@
+<% @customer_social_cases.each do |customer_social_case| %>
+  <tr>
+    <td><%= customer_social_case.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= customer_social_case.customer.customer_name %></td>
+    <td><%= customer_social_case.dish_number %></td>
+    <td><%= customer_social_case.time_unit.name %></td>
+    <td><%= customer_social_case.status %></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_customer_social_case_path(customer_social_case), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), customer_social_case_delete_path(customer_social_case), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

@@ -1,0 +1,51 @@
+<table id="datatable1" class="table display responsive nowrap">
+    <thead>
+                            
+        <tr>
+            <th>ID</th>
+              <th>Date</th>
+              <th>Client</th>
+              <th>Table</th>
+              <th>Total</th>
+              
+           
+        </tr>
+
+                                
+
+  
+                               
+                            </thead>
+                            <tbody >
+                            
+                               
+
+                                
+
+
+         
+
+    <% @orders.each do |order| %>
+        <tr>
+        
+            <td><%= order.id %></td>
+            <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= order.customer.customer_name %></td>
+            <td><%= order.table.name if order.table_id.present? %></td>
+            <td><%= order.total %></td>
+            
+
+
+            
+        </tr>
+    <% end %>
+
+                            </tbody>
+                           <tfoot class="tfooter">
+                                <%= render("search/partials/tfooter") %> 
+
+                            </tfoot>
+                        </table>
+
+
+                       

@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @table.errors.any? %>
+  <% @table.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".tables").html("<%= escape_javascript(render 'index') %>");
+  $("#table-modal").modal("hide");
+ 
+<% end %>

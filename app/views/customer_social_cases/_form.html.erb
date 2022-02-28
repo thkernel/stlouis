@@ -1,0 +1,28 @@
+<%= form_with(model: customer_social_case, local: false) do |form| %>
+  
+
+  <div class="modal-body">
+  
+        <ul class="errors">
+        </ul>
+        <div class="form-group">
+          <%= form.label :customer_id,"Client", class: "required" %>
+          <%= form.collection_select(:customer_id, @customers, :id, :customer_name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+        </div>
+
+        <div class="form-group">
+          <%= form.label :dish_number, "Nombre de plat", class: "required" %>
+          <%= form.number_field :dish_number, class: "form-control", min: "1", requird: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :time_unit_id, "Temps",class: "required" %>
+          <%= form.collection_select(:time_unit_id, @time_units, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+        </div>
+
+        </div><!-- modal body -->
+            <div class="modal-footer">
+              <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+              <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+        </div>
+<% end %>

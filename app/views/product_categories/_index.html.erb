@@ -1,0 +1,19 @@
+<% @product_categories.each do |product_category| %>
+    <tr >
+        <td ><%= product_category.name %></td>
+        
+        
+        <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_product_category_path(product_category), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), product_category_delete_path(product_category), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+<% end %>

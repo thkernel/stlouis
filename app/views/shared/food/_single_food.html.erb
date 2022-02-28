@@ -1,0 +1,37 @@
+ <div class="card">
+                    <div class="card-body">
+						<div class="card-thumbnail">
+							<%= link_to food_show_path(food) do %>
+								<%= food_thumbnail(food) %>
+							<% end %>
+						</div>
+						<div class="card-title ">
+							<h5> <%= link_to food.name, food_show_path(food), class: "product-name" %>  </h5>                         
+						</div>
+                            
+						<div class="label-wrap label-right hide-on-list">
+							<span class="label-status label-status-7 label label-default">
+								<%= food.food_category.name %>
+							</span>
+							                  
+						</div>
+						<div class="price">
+							<span class="item-price xof">
+								<%= "#{number_with_precision(food.price, delimiter: " ", separator: "", precision: 0)} F CFA"  %>
+							</span>
+
+							
+
+							
+						</div>	
+						
+					   
+						<div class="item-footer text-center">
+							
+							<%= link_to raw('<i class="fa fa-shopping-bag" aria-hidden="true"></i> Ajouter au panier'), add_to_cart_path(food: food.uid) , class: "btn btn-primary",  data: {disable_with: "Ajout au panier ..."}, autocomplete: "off",  remote: true %>
+							
+						</div>
+						
+							
+                    </div>
+                </div>	

@@ -1,0 +1,22 @@
+<% @stock_entries.each do |stock_entry| %>
+      <tr>
+        <td><%= stock_entry.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= stock_entry.product.name %></td>
+        <td><%= stock_entry.reason %></td>
+        <td><%= stock_entry.quantity %></td>
+        <td><%= stock_entry.unity.name %></td>
+       
+        <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_stock_entry_path(stock_entry), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), stock_entry_delete_path(stock_entry), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+      </tr>
+    <% end %>

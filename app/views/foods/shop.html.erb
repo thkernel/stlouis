@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="page-wrapper ">
+        <div class="page-content mg-t-30 mg-b-30">
+            <div class="page-title ">
+                <h3>Boutique</h3>
+            </div>
+            <div class="page-body">
+                <div class="row products">
+                    <% @foods.each do |food| %>
+
+                        <div class="col-md-3 product-item mg-t-20">	
+                            <%= render "shared/food/single_food" , food: food %>
+                        </div>
+                    <% end %> 
+                </div>
+                <div class="row load-more">
+                    <%= will_paginate @foods, previous_label: "Précédent",next_label: "Suivant",  renderer: BootstrapPagination::Rails, class: "pagination load-more-button" %> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

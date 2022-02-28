@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @customer_fidelity_card.uid %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_fidelity_card.customer %>
+</p>
+
+<p>
+  <strong>Fidelity card:</strong>
+  <%= @customer_fidelity_card.fidelity_card %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @customer_fidelity_card.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @customer_fidelity_card.account %>
+</p>
+
+<%= link_to 'Edit', edit_customer_fidelity_card_path(@customer_fidelity_card) %> |
+<%= link_to 'Back', customer_fidelity_cards_path %>

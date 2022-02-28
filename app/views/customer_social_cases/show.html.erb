@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @customer_social_case.uid %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_social_case.customer %>
+</p>
+
+<p>
+  <strong>Dish number:</strong>
+  <%= @customer_social_case.dish_number %>
+</p>
+
+<p>
+  <strong>Time unit:</strong>
+  <%= @customer_social_case.time_unit %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @customer_social_case.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @customer_social_case.account %>
+</p>
+
+<%= link_to 'Edit', edit_customer_social_case_path(@customer_social_case) %> |
+<%= link_to 'Back', customer_social_cases_path %>

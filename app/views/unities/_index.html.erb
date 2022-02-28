@@ -1,0 +1,21 @@
+<% @unities.each do |unity| %>
+    <tr >
+        <td ><%= unity.name %></td>
+       
+        
+        
+        
+        <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_unity_path(unity), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), unity_delete_path(unity), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+<% end %>

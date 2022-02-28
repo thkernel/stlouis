@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: restoration_technical_sheet_items
+#
+#  id                           :bigint           not null, primary key
+#  uid                          :string
+#  technical_sheet_id           :bigint
+#  product_id                   :bigint
+#  unity_id                     :bigint
+#  unity_purchase_cost_excl_tax :float            default(0.0)
+#  quantity                     :float            default(0.0)
+#  cost_price_excl_tax          :float            default(0.0)
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  restoration_technical_sheet: one
+  product: one
+  unity: one
+  unity_purchase_cost_excl_tax: 1.5
+  quantity: 1.5
+  cost_price_excl_tax: 1.5
+
+two:
+  uid: MyString
+  restoration_technical_sheet: two
+  product: two
+  unity: two
+  unity_purchase_cost_excl_tax: 1.5
+  quantity: 1.5
+  cost_price_excl_tax: 1.5

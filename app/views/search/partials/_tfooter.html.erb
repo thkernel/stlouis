@@ -1,0 +1,50 @@
+ 
+
+<tr>               
+    <td>TOTAL IMPAYÉE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="blue-amount"><strong><%= number_to_currency @total_impayee, unit: "", seperator: ",", delimiter: " " %></strong>
+    </td> 
+</tr>
+
+<tr>                 
+    <td>TOTAL PAIEMENT EN ESPÈCE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="blue-amount"><strong><%= number_to_currency @total_espece, unit: "", seperator: ",", delimiter: " " %></strong>
+    </td>
+    
+</tr>
+<tr>                 
+    <td>TOTAL RECHARGE CARTE DE FIDELITÉ</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="blue-amount"><strong><%= number_to_currency @total_card_recharges, unit: "", seperator: ",", delimiter: " " %></strong>
+    </td>
+    
+</tr>
+
+<tr>
+    <td>TOTAL PAIEMENT PAR CARTE DE FIDÉLITÉ</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="blue-amount"><strong><%= number_to_currency @total_carte, unit: "", seperator: ",", delimiter: " " %></strong>
+    </td>
+    
+</tr>
+
+
+<tr>                  
+    <td>TOTAL GÉNÉRAL</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="blue-amount"><strong><%= number_to_currency @total, unit: "", seperator: ",", delimiter: " " %></strong>
+    </td>
+    
+</tr>

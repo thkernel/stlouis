@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: permission_items
+#
+#  id            :bigint           not null, primary key
+#  uid           :string
+#  permission_id :bigint
+#  action_name   :string
+#  status        :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  permission: one
+  action_name: MyString
+  status: MyString
+
+two:
+  uid: MyString
+  permission: two
+  action_name: MyString
+  status: MyString

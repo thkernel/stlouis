@@ -1,0 +1,168 @@
+<%= form_with(model: technical_sheet, local: true) do |form| %>
+  <% if technical_sheet.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      <h2><%= pluralize(technical_sheet.errors.count, "error") %> prohibited this technical_sheet from being saved:</h2>
+
+      <ul>
+      <% technical_sheet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+    
+  <% end %>
+
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :food_id, "Plat", class: "required" %>
+        <%= form.collection_select(:food_id, @foods, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :portion_number, "Nombre de portions à préparer", class: "required" %>
+        <%= form.number_field :portion_number, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sale_price_incl_vat, "Prix de vente TTC", class: "required" %>
+        <%= form.number_field :sale_price_incl_vat, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :vat_rate, "Taux TVA(%)", class: "required" %>
+        <%= form.number_field :vat_rate, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :total_cost_price_excl_tax, "Total prix de revient HT", class: "required" %>
+        <%= form.number_field :total_cost_price_excl_tax, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :produced_portion_unit_cost_price_excl_tax , "Prix de revient unitaire HT par portion produite"%>
+        <%= form.number_field :produced_portion_unit_cost_price_excl_tax, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :unsold_average_percentage, "Pourcentage moyen d'invendus", class: "required" %>
+        <%= form.number_field :unsold_average_percentage, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :sold_portion_unit_cost_price_excl_vat, "Prix de revient unitaire HT par portion vendue" %>
+        <%= form.number_field :sold_portion_unit_cost_price_excl_vat, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <%= form.label :selling_price_excl_tax, "Prix de vente HT" %>
+        <%= form.number_field :selling_price_excl_tax, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+   
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :gross_margin, "Marge brute" %>
+        <%= form.number_field :gross_margin, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :margin_rate, "Taux de marge" %>
+        <%= form.number_field :margin_rate, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :margin_coefficient, "Coefficient de marge" %>
+        <%= form.number_field :margin_coefficient, class: "form-control" %>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fieldset informations -->
+  
+  <fieldset>
+    <legend>Quantités nécessaires pour le nombre de portions à préparer </legend>
+    <div class="row">
+      <div id="restoration-technical-sheet-item">
+
+        <table class="table  responsive ">
+          <thead>
+            <tr role="row">
+              <th>Produit</th>
+              <th>Unité</th>
+              <th>Coût d'achat HT à l'unité</th>
+              <th>Quantité</th>
+              <th>Prix de revient HT</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="items">
+            <%= form.fields_for :technical_sheet_items do |item| %>
+                <%= render 'technical_sheet_item_fields', f: item %>
+            <% end %>
+          </tbody>
+        </table>  
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter'), form, :technical_sheet_items, class: 'btn btn-primary', data: { association_insertion_node: '.items', association_insertion_method: :append } %>
+        </div>
+      </div>
+    </div>
+    
+  </fieldset>
+
+  
+
+  
+
+  
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group pull-right">
+        <%= form.submit class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" %>
+      </div>
+    </div>
+  </div>
+<% end %>

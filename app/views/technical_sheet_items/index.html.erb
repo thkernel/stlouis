@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restoration Technical Sheet Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Restoration technical sheet</th>
+      <th>Product</th>
+      <th>Unity</th>
+      <th>Unity purchase cost excl tax</th>
+      <th>Quantity</th>
+      <th>Cost price excl tax</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restoration_technical_sheet_items.each do |restoration_technical_sheet_item| %>
+      <tr>
+        <td><%= restoration_technical_sheet_item.uid %></td>
+        <td><%= restoration_technical_sheet_item.restoration_technical_sheet %></td>
+        <td><%= restoration_technical_sheet_item.product %></td>
+        <td><%= restoration_technical_sheet_item.unity %></td>
+        <td><%= restoration_technical_sheet_item.unity_purchase_cost_excl_tax %></td>
+        <td><%= restoration_technical_sheet_item.quantity %></td>
+        <td><%= restoration_technical_sheet_item.cost_price_excl_tax %></td>
+        <td><%= link_to 'Show', restoration_technical_sheet_item %></td>
+        <td><%= link_to 'Edit', edit_restoration_technical_sheet_item_path(restoration_technical_sheet_item) %></td>
+        <td><%= link_to 'Destroy', restoration_technical_sheet_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restoration Technical Sheet Item', new_restoration_technical_sheet_item_path %>

@@ -1,0 +1,41 @@
+<%= form_with(model: fidelity_card, local: false) do |form| %>
+  
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+    <div class="row">
+      <div class="col-md-12">
+  
+
+        <div class="form-group">
+          <%= form.label :balance, "Solde" %>
+          <%= form.number_field :balance, class: "form-control" %>
+        </div>
+
+        <% unless @fidelity_card.new_record? %>
+        <div class="form-group">
+          <%= form.label :uid, "UID" %>
+          <%= form.text_field :uid, class: "form-control" %>
+        </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <%= form.label :status, "Statut", class: "required" %>
+                <%= form.select  :status, CARD_STATUSES, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%",  required: true %> 
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        </div>
+        </div>
+
+  
+  </div><!-- modal body -->
+  <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

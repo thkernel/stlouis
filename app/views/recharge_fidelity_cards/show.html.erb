@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @recharge_fidelity_card.uid %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @recharge_fidelity_card.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @recharge_fidelity_card.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @recharge_fidelity_card.account %>
+</p>
+
+<%= link_to 'Edit', edit_recharge_fidelity_card_path(@recharge_fidelity_card) %> |
+<%= link_to 'Back', recharge_fidelity_cards_path %>

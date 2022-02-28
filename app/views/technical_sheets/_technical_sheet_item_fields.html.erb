@@ -1,0 +1,37 @@
+<tr class="nested-fields">
+
+    <td class="customSelect">
+        <%= f.collection_select(:product_id, @products, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+
+    </td>
+
+    <td class="customSelect">
+        <%= f.collection_select(:unity_id, @unities, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+
+    </td>
+    
+    <td>
+        <%= f.number_field :unity_purchase_cost_excl_tax, class: "form-control", required: true %>
+    </td>
+
+    <td>
+    <%= f.number_field :quantity, class: "form-control", min: "0", required: true %> 
+
+    </td>
+     
+    
+   
+    <td>
+        <%= f.number_field :cost_price_excl_tax, class: "form-control", required: true %>
+    </td>
+   
+    <td>
+      
+    <%= link_to_remove_association raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), f, class: 'delete' %>
+  
+    </td>
+
+
+
+</tr>

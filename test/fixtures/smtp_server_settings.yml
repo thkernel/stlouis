@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: smtp_server_settings
+#
+#  id                   :bigint           not null, primary key
+#  uid                  :string
+#  host_name            :string
+#  user_name            :string
+#  user_password        :string
+#  domain               :string
+#  port                 :integer
+#  authentication       :string
+#  enable_starttls_auto :boolean
+#  ssl                  :boolean
+#  account_id           :bigint
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  host_name: MyString
+  user_name: MyString
+  user_password: MyString
+  domain: MyString
+  port: 1
+  authentication: MyString
+  enable_starttls_auto: false
+  ssl: false
+  account: one
+
+two:
+  uid: MyString
+  host_name: MyString
+  user_name: MyString
+  user_password: MyString
+  domain: MyString
+  port: 1
+  authentication: MyString
+  enable_starttls_auto: false
+  ssl: false
+  account: two

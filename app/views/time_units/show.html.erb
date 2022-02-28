@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @time_unit.uid %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @time_unit.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @time_unit.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @time_unit.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @time_unit.account %>
+</p>
+
+<%= link_to 'Edit', edit_time_unit_path(@time_unit) %> |
+<%= link_to 'Back', time_units_path %>

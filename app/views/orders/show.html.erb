@@ -1,0 +1,201 @@
+
+
+<div class="br-pagebody mg-b-30 mg-t-80">
+  <div class="br-section-wrapper">
+
+    <div class="actions text-center mg-b-10">
+      <% if unpaid?(@order)  && !canceled?(@order) %>
+        <button type="button"  onclick="printInvoice2()" class= "btn btn-primary print-invoices">Imprimer</button>
+      <% end %>
+
+        <% if unpaid?(@order)  && !canceled?(@order) %>
+            <%= link_to "Payée maintenant", paynow_path(@order.uid), class: "btn btn-warning" %>
+        <% end %>
+    </div>
+    
+    <div id="invoice-box" class="invoice-box mt-30 mb-30">
+        
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td class="title">
+                              <div class="invoice-logo">
+                                	<%= image_tag "logo/logo.png", alt: "Logo" %> 
+                                </div>
+                            </td>
+                            
+                            <td>
+                                Référence: <%= @order.uid %><br>
+                                Crée le: <%= @order.created_at.strftime("%d/%m/%Y") %><br>
+                                Caissier/Serveur : <%= @order.account.login %><br>
+                                Table: <%= @order.table.name if @order.table %><br>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <tr class="information">
+                <td colspan="4">
+                    <table>
+                        <tr>
+                            <td>
+                              <b>
+                                LE SAINT LOUIS<br>
+                                Immeuble Jean Marie Cissé<br>
+                                Tél: +223 72 11 31 17<br>
+                                Hamdallaye ACI 2000<br>
+                                Bamako, MALI
+                              </b>
+                            </td>
+                            
+                            <td>
+                              <b>
+                                <%= @order.customer.customer_name %><br>
+                                
+                                <% if @order.customer.phone %>
+                                  <%= "Tél: #{@order.customer.phone}" %>
+                                <% end %>
+                              </b>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            
+            
+            <tr class="heading">
+                <td>
+                    Désignation
+                </td>
+
+                 <td>
+                    Qté
+                </td>
+                
+                <td>
+                    P.U
+                </td>
+                <td>
+                   Montant
+                </td>
+            </tr>
+            
+            <% @order.order_items.each do |item| %>
+              <tr class="item">
+                  <td>
+                    <%= item.food.name if item.food_id.present? %>
+                  </td>
+                  <td>
+                      <%= number_with_precision(item.quantity, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+                  <td>
+                      <%= number_with_precision( item.price, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+                  <td>
+                      <%= number_with_precision(item.quantity * item.price, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+              </tr>
+            <% end %>
+
+            <% @order.order_item_drinks.each do |item|  %>
+              <tr class="item">
+                  <td>
+                    <%= item.product.name if item.product_id.present? %>
+                  </td>
+                  <td>
+                      <%= number_with_precision(item.quantity, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+                  <td>
+                      <%= number_with_precision( item.unit_price, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+                  <td>
+                      <%= number_with_precision(item.quantity * item.unit_price, delimiter: " ", separator: "", precision: 0) %>
+                  </td>
+              </tr>
+            <% end  %>
+
+            <% if @order.vip_space  %>
+              <tr class="item">
+                <td>
+                   Accès espace VIP
+                  </td>
+                  
+                  <td>
+                      
+                  </td>
+                  <td>
+                     
+                  </td>
+                  <td>
+                     1 000
+                  </td>
+              </td>
+            <% end  %>
+            
+           
+            
+            <tr class="total">
+                <td></td><td></td>
+                <td></td>
+                <td>
+                   Total: <%= "#{number_with_precision(@order.total, delimiter: " ", separator: "", precision: 0)} F CFA" %>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    </div>
+
+    </div>
+    <script>
+     
+        function printInvoice1() {
+            var divContents = document.getElementById("invoice-box").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+
+            
+           
+            a.document.write('<html>');
+            //a.document.write(head);
+           
+            a.document.write('<body>');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+
+        function printInvoice2() {
+            var printContents = document.getElementById("invoice-box").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        function printFunc() {
+          var divToPrint = document.getElementById('invoice-box');
+          var htmlToPrint = '' +
+          '<style type="text/css">' +
+          'table th, table td {' +
+          'border:1px solid #000;' +
+          '}' +
+          '</style>';
+          htmlToPrint += divToPrint.outerHTML;
+          newWin = window.open("");
+          newWin.document.write("<h3 align='center'>Print Page</h3>");
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+        newWin.close();
+    }
+
+    </script>
+   

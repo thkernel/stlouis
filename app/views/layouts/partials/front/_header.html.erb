@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+  <!-- Navbar band -->
+  <div class= "navbar-brand">
+		
+		
+
+			<%= link_to root_url, class: "navbar-brand" do %>
+				<%= image_tag "logo/logo.png", class: "logo" %> 
+			<% end %>
+	
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+				
+            		
+			
+
+			
+
+        
+
+        	<li class="nav-item">
+          <%= link_to "A propos", root_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Événements", root_path, class: "nav-link" %>
+        </li>
+					
+				
+	            	<li class="nav-item">
+          <%= link_to "Contactez-nous", root_path, class: "nav-link" %>
+        </li>
+        
+        </ul>
+
+    <ul class="navbar-nav ml-auto">
+      
+      <% unless account_signed_in? %>
+        <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+          <%= link_to "Se connecter", new_account_session_path, class: "btn btn-link" %>
+        </li>
+        
+        <li  class="nav-item">
+            
+              <%= link_to "S'inscrire" , new_account_registration_path , class: "btn btn-primary lift" %>
+            
+          </li>
+        <% else %>
+           <li class="nav-item">
+        <!-- <a class="nav-link" href="#">Link</a> -->
+          <%= link_to raw('<i class="fa fa-user" aria-hidden="true"></i>
+ Mon compte'), dashboard_path, class: "btn btn-link" %>
+        </li>
+              <li class="nav-item">
+              <%= link_to "Se déconnecter", destroy_account_session_path, method: :delete,  class: "btn btn-link"  %></li>
+
+        
+        
+        <% end %>
+        <li  class="nav-item">
+          <%= render "shareds/cart/cart" %>
+        </li>
+      
+    </ul>
+   
+
+   
+      
+  </div>
+  </div>
+</nav>

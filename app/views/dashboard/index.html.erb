@@ -1,0 +1,23 @@
+<% if current_account.role.name == "Superuser" %>
+		<%= render "dashboard/partials/superuser-dashboard" %>
+	
+	<% elsif current_account.role.name == "Administrateur" %>
+		<%= render "dashboard/partials/administrateur-dashboard" %>
+
+	<% elsif current_account.role.name == "Superviseur" %>
+		<%= render "dashboard/partials/superviseur-dashboard" %>
+	<% elsif current_account.role.name == "Gérant" %>
+		<%= render "dashboard/partials/gerant-dashboard" %>
+	<% elsif current_account.role.name == "Caissier" %>
+		<%= render "dashboard/partials/caissier-dashboard" %>
+	<% elsif current_account.role.name == "Serveur" %>
+		<%= render "dashboard/partials/serveur-dashboard" %>
+	<% elsif current_account.role.name == "Livreur" %>
+		<%= render "dashboard/partials/livreur-dashboard" %>
+	
+
+
+<% end %>
+
+
+

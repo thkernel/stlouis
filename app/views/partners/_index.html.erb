@@ -1,0 +1,24 @@
+ <% @partners.each do |partner| %>
+      <tr>
+        <td><%= partner.company_name %></td>
+        <td><%= partner.first_name %></td>
+        <td><%= partner.last_name %></td>
+        <td><%= partner.civility %></td>
+        <td><%= partner.city %></td>
+        <td><%= partner.country %></td>
+        <td><%= partner.phone %></td>
+       
+        <td>
+					<div class="action-buttons">
+					<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_partner_path(partner), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), partner_delete_path(partner), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    </tr>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Drink Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uid</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drink_types.each do |drink_type| %>
+      <tr>
+        <td><%= drink_type.uid %></td>
+        <td><%= drink_type.name %></td>
+        <td><%= drink_type.description %></td>
+        <td><%= drink_type.status %></td>
+        <td><%= drink_type.account %></td>
+        <td><%= link_to 'Show', drink_type %></td>
+        <td><%= link_to 'Edit', edit_drink_type_path(drink_type) %></td>
+        <td><%= link_to 'Destroy', drink_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drink Type', new_drink_type_path %>

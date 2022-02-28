@@ -1,0 +1,131 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <div class="form-group customSelect">
+        <%= form.label :customer_id, "Client", class: "required" %>
+        <%= form.collection_select(:customer_id, @customers, :id, :customer_name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+
+
+  
+
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="form-group customSelect">
+        <%= form.label :table_id %>
+        <%= form.collection_select(:table_id, @tables, :id, :name, {prompt: "Sélectionner"}, class: "form-control customSelect", style: "width: 100%") %> 
+      </div>
+
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+          <%= form.check_box :vip_space %>
+          <%= form.label "Espace VIP" %>
+      </div>
+    </div>
+  </div>
+
+      
+
+  <!-- Fieldset informations -->
+  <fieldset>
+    <legend>Liste des <%= shop_tenant? ? "boisons" : "plats"%> </legend>
+    <div class="row">
+      <div id="order-items">
+
+        <table class="table  responsive ">
+          <thead>
+            <tr role="row">
+              <th><%= shop_tenant? ? "Boisson" : "Plat"%></th>
+              <th>P.U</th>
+              <th>Quanité</th>
+              <th>Montant</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="items">
+            <%= form.fields_for :order_items do |item| %>
+                <%= render 'order_item_fields', f: item %>
+            <% end %>
+          </tbody>
+        </table>  
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <% if shop_tenant? %>
+            <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter une boisson'), form, :order_items, class: 'btn btn-primary', data: { association_insertion_node: '.items', association_insertion_method: :append } %>
+            <% else %>
+              <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter un plat'), form, :order_items, class: 'btn btn-primary', data: { association_insertion_node: '.items', association_insertion_method: :append } %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    
+  </fieldset>
+
+  <!-- Fieldset informations -->
+  <% if !shop_tenant? %>
+  <fieldset>
+    <legend>Liste des  boissons </legend>
+    <div class="row">
+      <div id="order-item-drinks">
+
+        <table class="table  responsive ">
+          <thead>
+            <tr role="row">
+              <th>Boisson</th>
+              <th>P.U</th>
+              <th>Quanité</th>
+              <th>Montant</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="item-drinks">
+            <%= form.fields_for :order_item_drinks do |item_drink| %>
+                <%= render 'order_item_drink_fields', f: item_drink %>
+            <% end %>
+          </tbody>
+        </table>  
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter une boisson'), form, :order_item_drinks, class: 'btn btn-primary', data: { association_insertion_node: '.item-drinks', association_insertion_method: :append } %>
+        </div>
+      </div>
+    </div>
+    
+  </fieldset>
+
+  <% end %>
+ 
+
+ 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group pull-right">
+        <%= form.submit "VALIDER LA COMMANDE", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" %>
+      </div>
+    </div>
+  </div>
+<% end %>

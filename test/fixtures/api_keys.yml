@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: api_keys
+#
+#  id           :bigint           not null, primary key
+#  access_token :string
+#  account_id   :bigint
+#  expires_at   :datetime
+#  active       :boolean
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  access_token: MyString
+  account: one
+  expires_at: 2022-01-19 06:24:42
+  active: false
+
+two:
+  access_token: MyString
+  account: two
+  expires_at: 2022-01-19 06:24:42
+  active: false

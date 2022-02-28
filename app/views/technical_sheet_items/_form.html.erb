@@ -1,0 +1,52 @@
+<%= form_with(model: restoration_technical_sheet_item, local: true) do |form| %>
+  <% if restoration_technical_sheet_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restoration_technical_sheet_item.errors.count, "error") %> prohibited this restoration_technical_sheet_item from being saved:</h2>
+
+      <ul>
+      <% restoration_technical_sheet_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uid %>
+    <%= form.text_field :uid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restoration_technical_sheet_id %>
+    <%= form.text_field :restoration_technical_sheet_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unity_id %>
+    <%= form.text_field :unity_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unity_purchase_cost_excl_tax %>
+    <%= form.text_field :unity_purchase_cost_excl_tax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_price_excl_tax %>
+    <%= form.text_field :cost_price_excl_tax %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

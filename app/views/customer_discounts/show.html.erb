@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @customer_discount.uid %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_discount.customer %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @customer_discount.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @customer_discount.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @customer_discount.account %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @customer_discount.description %>
+</p>
+
+<%= link_to 'Edit', edit_customer_discount_path(@customer_discount) %> |
+<%= link_to 'Back', customer_discounts_path %>

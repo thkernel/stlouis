@@ -1,0 +1,29 @@
+<% if @accounts.present? %>
+	<% @accounts.each do |account| %>
+		<tr>
+			
+			<td><%= account.login %></td>
+			<td><%= account.email %></td>
+			<td><%= account.role.name %></td>
+			<td>
+			<div class="action-buttons">
+				<%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_account_path(account.uid), title: "Modifier", remote: true %>
+
+<% if is_account_locked?(account) %>
+	<%= link_to raw('<i class="fa fa-ban" aria-hidden="true"></i>
+	'), get_enable_account_path(account.uid), remote: true, title: "Compte inactif. Cliquez pour l'activé", class: "delete" %>
+<% else %>
+<%= link_to raw('<i class="fa fa-check-circle" aria-hidden="true"></i>
+	'),  get_disable_account_path(account.uid), remote: true, title: "Compte actif. Cliquez pour le désactivé", class: "delete" %>
+<% end %>
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), delete_account_path(account), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+
+			  </tr>
+			<% end %>
+			<% end %>
