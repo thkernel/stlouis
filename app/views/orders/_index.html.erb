@@ -20,9 +20,9 @@
         <%= link_to raw('<i class="fa fa-eye" aria-hidden="true"></i>
 '), show_order_path(uid: order.uid), title: "Voir", remote: false %>
 <% end %>
-
-<%= link_to raw('<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-      '), generate_pdf_path(uid: order.uid, format: :pdf), remote: false, title: "Télécharger" %>
+<!--
+ link_to raw('<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      '), generate_pdf_path(uid: order.uid, format: :pdf), remote: false, title: "Télécharger"  -->
 
 
 <% if unconfirmed_order?(order) %>
