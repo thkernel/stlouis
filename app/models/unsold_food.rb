@@ -24,15 +24,14 @@ class UnsoldFood < ApplicationRecord
   belongs_to :account
 
 
-  def to_param
-    uid
-  end
+  #def to_param
+  #  uid
+  #end
 
 
   # Search
     def self.search(start_date, end_date)
-        
-        
+
       query = UnsoldFood.order(:created_at)
       query = query.where("DATE(created_at) BETWEEN ? AND ? ", start_date, end_date) if start_date.present? and  end_date.present?
       #query = query.where("account_id =  ?", account) if account.present?
@@ -44,7 +43,7 @@ class UnsoldFood < ApplicationRecord
 
     def set_status
       unless self.status.present?
-        self.paid = "Confirmé"
+        self.status = "Confirmé"
       end
     end
 end

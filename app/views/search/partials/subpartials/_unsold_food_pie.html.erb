@@ -4,10 +4,10 @@
         <div class="col-md-12">
             <div class="content">
                 <div class="content-title">
-                    <h5>Quantité partielle</h5>
+                    
                 </div>
                 <div class="content-body">
-                    <%= pie_chart @unsold_food_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
+                    <%= pie_chart @total_unsold_food_pie, messages: {empty: "Pas de données"}, legend: "left", thousands: ".", decimal: ",", library: { plotOptions: { pie: { dataLabels: {enabled: true,
                 format: '<b>{point.y:,.0f}</b><br>{point.percentage:.1f}%'},showInLegend: true}}}, :id => "unsold_foods", adapter: "highcharts" %>
                 </div>
 
