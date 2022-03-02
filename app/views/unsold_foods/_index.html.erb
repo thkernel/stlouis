@@ -1,0 +1,21 @@
+<% @unsold_foods.each do |unsold_food| %>
+  <tr>
+    <td><%= unsold_food.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= unsold_food.uid %></td>
+    <td><%= unsold_food.food.name %></td>
+    <td><%= unsold_food.quantity %></td>
+    <td>
+        <div class="action-buttons">
+            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_unsold_food_path(unsold_food), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), unsold_food_delete_path(unsold_food), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+    
+  </tr>
+<% end %>

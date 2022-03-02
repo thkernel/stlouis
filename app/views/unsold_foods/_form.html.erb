@@ -1,0 +1,33 @@
+<%= form_with(model: unsold_food, local: false) do |form| %>
+  <div class="modal-body">
+     <ul class="errors">
+      </ul>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= form.label :food_id, "Plat", class: "required" %>
+        <%= form.collection_select(:food_id, @foods, :id, :name, {prompt: "Sélectionner"}, class: "form-control", style: "width: 100%", required: true) %> 
+      </div>
+
+      <div class="form-group">
+        <%= form.label :quantity, "Quanité", class: "required" %>
+        <%= form.number_field :quantity, class: "form-control", placeholder: "Quanité", min: "1", required: true %>
+      </div>
+
+     
+      <div class="form-group">
+        <%= form.label :description, "Détails" %>
+        <%= form.text_area :description, class: "form-control", placeholder: "Détails" %>
+      </div>
+    </div>
+  </div>
+
+  
+
+  </div><!-- modal body -->
+            <div class="modal-footer">
+            <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
+            <%= form.submit "Enregistrer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    </div>
+<% end %>

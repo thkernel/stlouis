@@ -7,6 +7,10 @@ end
 
 Rails.application.routes.draw do
 
+  resources :unsold_foods, path: "unsold-foods" do 
+    get "delete"
+  end
+  
   resources :technical_sheet_items do 
     get "delete"
   end

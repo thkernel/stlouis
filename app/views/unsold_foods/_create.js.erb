@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @unsold_food.errors.any? %>
+  <% @unsold_food.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".unsold-foods").html("<%= escape_javascript(render 'index') %>");
+  $("#unsold-food-modal").modal("hide");
+ 
+<% end %>

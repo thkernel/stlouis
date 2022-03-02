@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: restoration_technical_sheets
+# Table name: technical_sheets
 #
 #  id                                        :bigint           not null, primary key
 #  uid                                       :string

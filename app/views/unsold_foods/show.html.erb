@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @unsold_food.uid %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @unsold_food.food %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @unsold_food.quantity %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @unsold_food.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @unsold_food.description %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @unsold_food.account %>
+</p>
+
+<%= link_to 'Edit', edit_unsold_food_path(@unsold_food) %> |
+<%= link_to 'Back', unsold_foods_path %>

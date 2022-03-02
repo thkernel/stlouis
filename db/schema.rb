@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_190114) do
+ActiveRecord::Schema.define(version: 2022_03_02_053618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -542,6 +542,19 @@ ActiveRecord::Schema.define(version: 2022_02_26_190114) do
     t.index ["account_id"], name: "index_unities_on_account_id"
   end
 
+  create_table "unsold_foods", force: :cascade do |t|
+    t.string "uid"
+    t.bigint "food_id"
+    t.float "quantity"
+    t.string "status"
+    t.text "description"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_unsold_foods_on_account_id"
+    t.index ["food_id"], name: "index_unsold_foods_on_food_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid"
     t.string "first_name"
@@ -609,4 +622,6 @@ ActiveRecord::Schema.define(version: 2022_02_26_190114) do
   add_foreign_key "tenants", "accounts"
   add_foreign_key "time_units", "accounts"
   add_foreign_key "unities", "accounts"
+  add_foreign_key "unsold_foods", "accounts"
+  add_foreign_key "unsold_foods", "foods"
 end

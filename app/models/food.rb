@@ -27,6 +27,7 @@ class Food < ApplicationRecord
   belongs_to :food_category
   has_many :cart_items, dependent: :destroy
   has_many :order_items, dependent: :destroy
+  has_many :unsold_foods, dependent: :destroy
 
 	validates :name, presence: true, uniqueness: true
 

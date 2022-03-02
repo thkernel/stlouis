@@ -29,6 +29,9 @@ class SearchController < ApplicationController
 
     @orders = Order.search(start_date, end_date, account).where.not(status: "Annulée").where(social_case: false)#.paginate(:page => params[:page], :per_page => 15) #if Credit.search(bank_name).present?
 
+    @unsold_foods = UnsoldFood.search(start_date, end_date).where.not(status: "Annulée").joins(:food)
+    
+    puts "UNSOLD FOOD: #{@unsold_foods.inspect}"
     @all_orders = Order.search(start_date, end_date, account).where.not(status: "Annulée")
     
     @card_recharges = RechargeFidelityCard.search(start_date, end_date).where.not(status: "Annulée")
@@ -48,6 +51,8 @@ class SearchController < ApplicationController
     
     @partial_food_chart_pie = @order_items.unscope(:order).group("foods.name").sum("quantity")
     @total_food_chart_pie = @all_order_items.unscope(:order).group("foods.name").sum("quantity")
+    
+    #@total_unsold_food_pie = @unsold_foods.unscope(:order).group("foods.name").sum("quantity")
    
 
     

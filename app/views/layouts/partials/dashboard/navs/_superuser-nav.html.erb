@@ -61,6 +61,10 @@
               <li class="sub-item">
                   <%= link_to  "Plats", foods_path, class: "sub-link #{current? "active", foods_path}" %>
               </li>
+
+              <li class="sub-item">
+                <%= link_to  "Invendus", unsold_foods_path, class: "sub-link #{current? "active", unsold_foods_path}" %>
+              </li>
                
             </ul>
           </li>

@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: unsold_foods
+#
+#  id          :bigint           not null, primary key
+#  uid         :string
+#  food_id     :bigint
+#  quantity    :float
+#  status      :string
+#  description :text
+#  account_id  :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  food: one
+  quantity: 1.5
+  status: MyString
+  description: MyText
+  account: one
+
+two:
+  uid: MyString
+  food: two
+  quantity: 1.5
+  status: MyString
+  description: MyText
+  account: two
