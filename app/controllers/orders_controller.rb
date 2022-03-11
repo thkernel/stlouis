@@ -43,6 +43,31 @@ class OrdersController < ApplicationController
     
   end
 
+  def solde
+      data = params[:data]
+      puts "DATA: #{data}"
+      customer_id = params[:customer_id]
+    
+      
+
+      
+
+      customer_fidelity_card = CustomerFidelityCard.find_by(customer_id: data)
+      
+      fidelity_card = nil
+      
+      if customer_fidelity_card.present? && customer_fidelity_card.fidelity_card.status == "Active"
+        fidelity_card = customer_fidelity_card.fidelity_card
+
+        
+      end
+      
+      puts "CARD: #{fidelity_card.inspect}"
+      data = {:fidelity_card  => fidelity_card}
+      render :json => data
+    
+  end
+
   def product 
       data = params[:data]
     

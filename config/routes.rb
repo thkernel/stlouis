@@ -8,7 +8,7 @@ end
 Rails.application.routes.draw do
 
   resources :gifts
-  resources :bonus
+
   resources :unsold_foods, path: "unsold-foods" do 
     get "delete"
   end
@@ -130,6 +130,7 @@ get "orders/show/:uid" => "orders#show",as: :show_order
     collection do    
       get "food" => "orders#food"
       get "product" => "orders#product"
+      get "solde" => "orders#solde"
     end
     
   end

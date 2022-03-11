@@ -12,13 +12,15 @@
   <% end %>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 customer_id">
 
       <div class="form-group customSelect">
         <%= form.label :customer_id, "Client", class: "required" %>
         <%= form.collection_select(:customer_id, @customers, :id, :customer_name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
       </div>
-
+      <div class="form-group customer-fidelity-card-solde">
+       
+      </div>
 
   
 

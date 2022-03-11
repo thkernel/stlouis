@@ -181,7 +181,58 @@ $(document).on('turbolinks:load', function(){
     });
 
 
-    
+    // On dependent Selection change
+    $(".customer_id").on('change', 'select', function(event) {
+        var target_id = event.target.id;
+        var target_value = $("#"+target_id ).val();
+        console.log("Value: ", target_value);
+        console.log("ID: ",target_id)
+        var array = target_id.split("_");
+        var object_id = array[4];
+        var field = array[5];
+        console.log("Object ID: ",object_id );
+        console.log("FIELD: ", field );
+        var customer_id = $("#order_customer_id").val();
+
+        console.log("ORDER CUSTOM: ", customer_id);
+
+        if (customer_id != null && customer_id != ""){
+            $.ajax({
+                type: "GET",
+                headers: {
+                        'X-CSRF-Token': document.querySelector("meta[name=csrf-token]").content
+                        },
+                dataType: 'json',
+                url: "solde",
+                data: { data: target_value},  
+                success: function(response) {
+                    
+                    var _solde = null;
+                    
+                    console.log("RESPONSE: ", response);
+                    if (response.fidelity_card){
+
+                        _solde = response.fidelity_card.balance;
+                        
+                        $(".customer-fidelity-card-solde").text("Solde de carte de fidélité: " + _solde);
+                        $(".customer-fidelity-card-solde").css("display", "block");
+                        
+                        
+                    }
+                    else{
+                         $(".customer-fidelity-card-solde").css("display", "none");
+                        
+                    } 
+                }
+            });
+
+        }
+        else{
+
+            $(".customer-fidelity-card-solde").css("display", "none");
+        }
+
+    })
 
 
     
