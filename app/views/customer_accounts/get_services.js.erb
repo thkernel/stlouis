@@ -1,0 +1,5 @@
+$('#user_profile_attributes_service_id').empty();
+$('#user_profile_attributes_service_id').append( $('<option value="">Sélectionner</option>'));
+<% @services.each do |service| %>
+  $('#user_profile_attributes_service_id').append($('<option value="<%= service.id %>"><%= service.name %></option>'));
+<% end %>

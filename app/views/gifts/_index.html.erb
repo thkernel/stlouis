@@ -1,0 +1,9 @@
+<% @gifts.each do |gift| %>
+  <tr>
+   
+    <td><%= gift.customer.customer_name %></td>
+    <td><%= gift.food_quantity.to_i %></td>
+    <td><%= gift.bonus_number.to_i %></td>
+   
+  </tr>
+<% end %>

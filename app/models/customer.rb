@@ -35,6 +35,7 @@ class Customer < ApplicationRecord
   #accepts_nested_attributes_for :account
   #belongs_to :account
   has_many :orders, dependent: :destroy
+  has_one :gift, dependent: :destroy
 
 
   

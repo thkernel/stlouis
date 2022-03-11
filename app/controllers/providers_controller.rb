@@ -1,12 +1,14 @@
 class ProvidersController < ApplicationController
+  before_action :set_provider, only: %i[ show edit update destroy ]
+ 
+
    #authorize_resource
    load_and_authorize_resource :except => [:delete]
    
   before_action :authenticate_account!
   layout "dashboard"
   
-  before_action :set_provider, only: %i[ show edit update destroy ]
-
+  
   # GET /providers or /providers.json
   def index
     @providers = Provider.all

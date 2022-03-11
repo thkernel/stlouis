@@ -71,6 +71,12 @@
                     <%= link_to  "Plats", foods_path, class: "sub-link #{current? "active", foods_path}" %>
                 </li>
               <% end %>
+
+              <% if can? :read, Gift %>
+                <li class="sub-item">
+                  <%= link_to  "Bonus", gifts_path, class: "sub-link #{current? "active", gifts_path}" %>
+                </li>
+              <% end %>
                
             </ul>
           </li>

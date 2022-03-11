@@ -1,4 +1,5 @@
 class PartnersController < ApplicationController
+  before_action :set_partner, only: %i[ show edit update destroy ]
 
   #authorize_resource
   load_and_authorize_resource :except => [:delete]
@@ -6,8 +7,7 @@ class PartnersController < ApplicationController
   before_action :authenticate_account!
   layout "dashboard"
 
-  before_action :set_partner, only: %i[ show edit update destroy ]
-
+  
   # GET /partners or /partners.json
   def index
     @partners = Partner.all

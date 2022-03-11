@@ -1,4 +1,5 @@
 class UnsoldFoodsController < ApplicationController
+  before_action :set_unsold_food, only: %i[ show edit update destroy ]
   
   #authorize_resource
   load_and_authorize_resource :except => [:delete]
@@ -6,7 +7,7 @@ class UnsoldFoodsController < ApplicationController
   before_action :authenticate_account!
   
 
-  before_action :set_unsold_food, only: %i[ show edit update destroy ]
+  
   layout "dashboard"
   # GET /unsold_foods or /unsold_foods.json
   def index

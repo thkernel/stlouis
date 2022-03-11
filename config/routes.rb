@@ -7,6 +7,8 @@ end
 
 Rails.application.routes.draw do
 
+  resources :gifts
+  resources :bonus
   resources :unsold_foods, path: "unsold-foods" do 
     get "delete"
   end
@@ -174,11 +176,20 @@ get "orders/show/:uid" => "orders#show",as: :show_order
   get "/dashboard" => "dashboard#index" , as: :dashboard
   get "/accounts"     => "custom_accounts#index", as: :all_accounts 
 
+  #Customers accounts
+  get "customers-accounts"     => "customer_accounts#index", as: :all_customer_accounts 
+
   post "/account/new"     => "custom_accounts#create", as: :create_account
   get "/account/new"     => "custom_accounts#new", as: :new_account
   get "/account/edit/:uid" => "custom_accounts#edit", as: :edit_account
 
+  # Customer accounts
+  get "customer/account/edit/:uid" => "customer_accounts#edit", as: :edit_customer_account
+
   patch "/account/update/:uid" => "custom_accounts#update", as: :udapte_account
+
+  # Customer account.
+  patch "customer/account/update/:uid" => "customer_accounts#update", as: :udapte_customer_account
 
 	#get "/commissions/settings/new"     => "commission_settings#new", as: :new_commission_setting
 	#get "/commissions/settings/edit/:id" => "commission_settings#edit", as: :edit_commission_setting
@@ -195,6 +206,9 @@ get "orders/show/:uid" => "orders#show",as: :show_order
 	post "/user/disable/:uid" => "custom_accounts#post_disable", as: :post_disable_account
 
 	get "/account/update/:uid" => "custom_accounts#update", as: :update_account
+
+  # Customer account
+  get "customer/account/update/:uid" => "customer_accounts#update", as: :update_customer_account
 
 
 	get "/account/show/:uid" => "custom_accounts#show", as: :show_account
