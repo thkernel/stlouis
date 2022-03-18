@@ -16,6 +16,13 @@ module StockExitValidator
                     product = Product.find(record.product_id)
                     quantity = record.quantity.to_f
 
+                    #product_unity = product.unity.name.downcase
+
+                    #puts "UNITY: #{product_unity.inspect}"
+                    #if product_unity == "boule"
+                        #quantity = quantity * 2.5
+                    #end
+
                     puts "PRODUCT FOUND: #{product.inspect}"
                     if product.present? && quantity > 0.0  
                         puts "Product current stock: #{product.current_stock}"

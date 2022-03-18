@@ -1,11 +1,12 @@
 class FidelityCardsController < ApplicationController
+   before_action :set_fidelity_card, only: %i[ show edit update destroy ]
    #authorize_resource
    load_and_authorize_resource :except => [:delete]
    
   before_action :authenticate_account!
   layout "dashboard"
   
-  before_action :set_fidelity_card, only: %i[ show edit update destroy ]
+  
 
   # GET /fidelity_cards or /fidelity_cards.json
   def index

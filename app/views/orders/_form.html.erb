@@ -1,7 +1,11 @@
 <%= form_with(model: order, local: true) do |form| %>
   <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h4><%= pluralize(order.errors.count, "erreur") %> a empêchée l'enregistrement de cette commande:</h4>
 
       <ul>
       <% order.errors.full_messages.each do |message| %>

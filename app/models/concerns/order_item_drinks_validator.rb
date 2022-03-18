@@ -23,6 +23,14 @@ module OrderItemDrinksValidator
 
                     puts "PRODUCT FOUND: #{product.inspect}"
 
+                    #product_unity = product.unity.name.downcase
+
+                    #puts "UNITY: #{product_unity.inspect}"
+                    #if product_unity == "boule"
+                        #quantity = quantity * 2.5
+                    #end
+                    puts "NEW QUANTITY: #{quantity}"
+
                     if product.present? && quantity > 0.0  
                         
                         puts "Product current stock: #{product.current_stock}"
