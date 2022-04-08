@@ -1007,7 +1007,7 @@ a.product-name{
     font-weight: 700 !important;
 }
 
-#new-order fieldset legend, #new-restoration-technical-sheet fieldset legend{
+#new-order fieldset legend, #new-restoration-technical-sheet fieldset legend, #new-quote fieldset legend, #new-invoice fieldset legend, #edit-quote fieldset legend, #edit-invoice fieldset legend{
     border: 1px solid #ced4da;
     margin-bottom: 5px !important;
     font-size: 12pt !important;
@@ -1017,7 +1017,7 @@ a.product-name{
     color: white;
 }
 
-#new-order fieldset, #new-restoration-technical-sheet fieldset {
+#new-order fieldset, #new-restoration-technical-sheet fieldset, #new-quote fieldset, #new-invoice fieldset, #edit-quote fieldset, #edit-invoice fieldset {
     border: 1px solid #ced4da;
     padding: 15px;
     margin-bottom: 10px;
