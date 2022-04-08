@@ -68,6 +68,8 @@
 
 
 //= require orders
+//= require quotes
+//= require invoices
 
 
 $(document).on('turbolinks:load', function() {

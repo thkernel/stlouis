@@ -1,0 +1,129 @@
+<%= form_with(model: invoice, local: true) do |form| %>
+  <% if invoice.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h4><%= pluralize(invoice.errors.count, "erreur") %> a empêchée l'enregistrement de ce devis:</h4>
+
+      <ul>
+      <% invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 customer_id">
+
+      <div class="form-group customSelect">
+        <%= form.label :customer_id, "Client", class: "required" %>
+        <%= form.collection_select(:customer_id, @customers, :id, :customer_name, {prompt: "Sélectionner"}, class: "form-control ", style: "width: 100%", required: true) %> 
+      </div>
+      
+
+  
+
+    </div>
+
+    <div class="col-md-6">
+
+      
+
+    </div>
+    <div class="col-md-12">
+      
+    </div>
+  </div>
+
+      
+
+  <!-- Fieldset informations -->
+  <% if !shop_tenant? %>
+  <fieldset>
+    <legend>Liste des plats </legend>
+    <div class="row">
+      <div id="invoice-food-items">
+
+        <table class="table  responsive ">
+          <thead>
+            <tr role="row">
+              <th>Plat</th>
+              <th>P.U</th>
+              <th>Quantité</th>
+              <th>Montant</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="food-items">
+            <%= form.fields_for :invoice_food_items do |food_item| %>
+                <%= render 'invoice_food_item_fields', f: food_item %>
+            <% end %>
+          </tbody>
+        </table>  
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          
+            <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter un plat'), form, :invoice_food_items, class: 'btn btn-primary', data: { association_insertion_node: '.food-items', association_insertion_method: :append } %>
+           
+        </div>
+      </div>
+    </div>
+    <% end %>
+    
+  </fieldset>
+
+  <!-- Fieldset informations -->
+  
+  <fieldset>
+    <legend>Liste des  boissons </legend>
+    <div class="row">
+      <div id="invoice-product-items">
+
+        <table class="table  responsive ">
+          <thead>
+            <tr role="row">
+              <th>Boisson</th>
+              <th>P.U</th>
+              <th>Quantité</th>
+              <th>Montant</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody class="product-items">
+            <%= form.fields_for :invoice_product_items do |product_item| %>
+                <%= render 'invoice_product_item_fields', f: product_item %>
+            <% end %>
+          </tbody>
+        </table>  
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= link_to_add_association raw('<i class="fa fa-plus" aria-hidden="true"></i> Ajouter une boisson'), form, :invoice_product_items, class: 'btn btn-primary', data: { association_insertion_node: '.product-items', association_insertion_method: :append } %>
+        </div>
+      </div>
+    </div>
+    
+  </fieldset>
+
+  
+ 
+
+ 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group pull-right">
+        <%= form.submit "VALIDER LE DEVIS", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" %>
+      </div>
+    </div>
+  </div>
+<% end %>

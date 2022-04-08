@@ -1,0 +1,37 @@
+<% @quotes.each do |quote| %>
+  <tr>
+     <td><%= quote.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= quote.uid %></td>
+     
+   
+    <td><%= quote.customer.customer_name %></td>
+ 
+    <td><%= number_to_currency quote.total, unit: "", seperator: ",", delimiter: " " %></td>
+    
+    <td><span class="quote_status_<%= quote.status.parameterize %>"><%= quote.status %></span></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    
+
+<div class="action-buttons">
+    <% if can? :show, quote %>
+        <%= link_to raw('<i class="fa fa-eye" aria-hidden="true"></i>
+'), show_quote_path(quote), title: "Voir", remote: false %>
+<% end %>
+<!--
+ link_to raw('<i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      '), generate_pdf_path(uid: quote.uid, format: :pdf), remote: false, title: "Télécharger"  -->
+
+
+<% if unconfirmed_quote?(quote) %>
+    <% if can? :destroy, quote %>
+        <%= link_to raw('<i class="fa fa-ban" aria-hidden="true"></i>
+    '), get_cancel_path(uid: quote.uid), remote: true, title: "Annuler", class: "delete" %>
+    <% end %>
+
+<% end %>
+</div>
+</td>
+  </tr>
+<% end %>

@@ -734,42 +734,42 @@ span.tag-item{
 .order_payment_status_impayee{
     
 }
-.order_payment_status_payee{
+.order_payment_status_payee, .invoice_payment_status_payee{
     background-color: green;
     color: white;
     padding: 5px;
     border-radius: 10px;
 }
 
-.order_payment_method_gratuite{
+.order_payment_method_gratuite, .invoice_payment_method_gratuite{
     background-color: green;
     color: white;
     padding: 5px;
     border-radius: 10px;
 }
 
-.order_payment_status_impayee{
+.order_payment_status_impayee, .invoice_payment_status_impayee{
     background-color: orange;
     color: white;
     padding: 5px;
     border-radius: 10px;
 }
 
-.order_status_confirmee{
+.order_status_confirmee, .invoice_status_confirmee{
     background-color: green;
     color: white;
     padding: 5px;
     border-radius: 10px;
 }
 
-.order_status_en-attente{
+.order_status_en-attente, .invoice_status_en-attente{
     background-color: blue;
     color: white;
     padding: 5px;
     border-radius: 10px;
 }
 
-.order_status_annulee{
+.order_status_annulee, .invoice_status_annulee{
     background-color: red;
     color: white;
     padding: 5px;

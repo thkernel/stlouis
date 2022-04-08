@@ -71,6 +71,8 @@ class Account < ApplicationRecord
    has_many :partners, dependent: :destroy
    has_many :technical_sheets, dependent: :destroy
    has_many :unsold_foods, dependent: :destroy
+   has_many :quotes, dependent: :destroy
+   has_many :invoices, dependent: :destroy
 
 
    has_many :recipient_notifications, :class_name => "Notification", :foreign_key => :recipient_id

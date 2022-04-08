@@ -16,9 +16,20 @@
               <ul class="br-menu-sub">
                 <% if can? :read, Order %>
                   <li class="sub-item">
-                      <%= link_to  "Commandes", orders_path, class: "sub-link #{current? "active", fidelity_cards_path}" %>
+                    <%= link_to  "Commandes", orders_path, class: "sub-link #{current? "active", orders_path}" %>
                   </li>
+                <% end %>
+                
+                <% if can? :read, Quote %>
+                  <li class="sub-item">
+                    <%= link_to  "Devis", quotes_path, class: "sub-link #{current? "active", quotes_path}" %>
+                  </li>
+                <% end %>
 
+                <% if can? :read, Invoice %>
+                  <li class="sub-item">
+                    <%= link_to  "Factures", invoices_path, class: "sub-link #{current? "active", invoices_path}" %>
+                  </li>
                 <% end %>
                  
               </ul>

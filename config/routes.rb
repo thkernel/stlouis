@@ -7,6 +7,48 @@ end
 
 Rails.application.routes.draw do
 
+  resources :invoice_produit_items
+  resources :invoice_food_items
+
+   get "invoice/show/:uid" => "invoices#show",as: :show_invoice
+
+  get "/invoice/cancel/:uid" => "invoices#get_cancel", as: :get_cancel_invoice
+  post "/invoice/cancel/:uid" => "invoices#post_cancel", as: :post_cancel_invoice
+  get "paynow-invoice/:uid" => "invoices#paynow", as: :paynow_invoice
+
+
+  resources :invoices do
+    
+    get "delete"
+    collection do    
+      get "food" => "invoices#food"
+      get "product" => "invoices#product"
+      
+    end
+    
+  end
+  resources :quote_product_items
+  resources :quote_items
+
+  get "quote/show/:uid" => "quotes#show",as: :show_quote
+
+  get "/quote/cancel/:uid" => "quotes#get_cancel", as: :get_cancel_quote
+  post "/quote/cancel/:uid" => "quotes#post_cancel", as: :post_cancel_quote
+
+
+  
+
+
+  resources :quotes do
+    
+    get "delete"
+    collection do    
+      get "food" => "orders#food"
+      get "product" => "orders#product"
+      
+    end
+    
+  end
   resources :gifts
 
   resources :unsold_foods, path: "unsold-foods" do 

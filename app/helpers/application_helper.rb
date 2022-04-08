@@ -66,6 +66,28 @@ module ApplicationHelper
 		end
 	end
 
+	def unconfirmed_quote?(quote)
+		
+
+		if quote.status == "En attente"
+			true 
+		else
+			false
+		
+		end
+	end
+
+	def unconfirmed_invoice?(invoice)
+		
+
+		if invoice.status == "En attente"
+			true 
+		else
+			false
+		
+		end
+	end
+
 	
 
 	def devise_title(controller)
