@@ -20,7 +20,7 @@ class StockEntry < ApplicationRecord
 	# Include shared utils.
   include SharedUtils::Generate
 
-  before_save :generate_random_number_uid, :raise_current_stock
+  before_save :generate_random_number_uid, :raise_current_stock, :set_status
 
   belongs_to :product
   belongs_to :account
@@ -46,5 +46,13 @@ class StockEntry < ApplicationRecord
   	end
   end
 
+
+  def set_status
+      unless self.status.present?
+        self.status = "Confirmée"
+      end
+
+      
+    end
 
 end

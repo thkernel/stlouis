@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   get "/quote/cancel/:uid" => "quotes#get_cancel", as: :get_cancel_quote
   post "/quote/cancel/:uid" => "quotes#post_cancel", as: :post_cancel_quote
 
+  get "/stock-entry/cancel/:uid" => "stock_entries#get_cancel", as: :get_cancel_stock_entry
+  post "/stock-entry/cancel/:uid" => "stock_entries#post_cancel", as: :post_cancel_stock_entry
+
 
   
 

@@ -170,6 +170,12 @@ module ApplicationHelper
 
 	
 
-
+	def is_stock_entry_cancel(stock_entry)
+		if stock_entry.status == "Annulée"
+			true
+		else
+			false
+		end
+	end
 
 end

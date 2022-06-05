@@ -63,6 +63,44 @@ class StockEntriesController < ApplicationController
     end
   end
 
+  def get_cancel
+    @stock_entry = StockEntry.find_by(uid: params[:uid])
+   
+    
+    
+  end
+
+  def post_cancel
+    @stock_entry = StockEntry.find_by(uid: params[:uid])
+    #@order.update_column(:status, "Annulée")
+
+    stock_entry_quantity = @stock_entry.quantity
+
+    product = Product.find(@stock_entry.product_id)
+    product_current_stock = product.current_stock if product.present?
+    
+    
+    if product_current_stock  >= stock_entry_quantity
+      product.update_column(:current_stock, product_current_stock - stock_entry_quantity)
+      @stock_entry.update_column(:status, "Annulée")
+
+      respond_to do |format|
+        format.html { redirect_to stock_entries_url, notice: "Entrée stock annulée avec succès." }
+        format.json { head :no_content }
+
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to stock_entries_url, notice: "Impossible d'annulée cette entrée stock." }
+        format.json { head :no_content }
+
+      end
+    end
+
+    
+  end
+
+
   def delete
     @stock_entry = StockEntry.find(params[:stock_entry_id])
   end
