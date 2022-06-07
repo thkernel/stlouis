@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
+   #before_action :set_order, only: %i[ show edit update destroy generate_pdf ]
+  before_action :set_order, only: [:show, :edit, :update,:generate_pdf, :destroy]
+ 
    #authorize_resource, except: :food
-   load_and_authorize_resource :except => [:food, :product, :paynow]
+   load_and_authorize_resource :except => [:food, :product, :paynow, :get_cancel, :post_cancel]
    
   before_action :authenticate_account!
   layout "dashboard"
 
-  #before_action :set_order, only: %i[ show edit update destroy generate_pdf ]
-  before_action :set_order, only: [:show, :edit, :update,:generate_pdf, :destroy]
- 
+  
   # GET /orders or /orders.json
   def index
 
