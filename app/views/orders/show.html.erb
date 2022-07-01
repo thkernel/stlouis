@@ -87,9 +87,15 @@
             
             <% @order.order_items.each do |item| %>
               <tr class="item">
+                <% if item.food_id.present? %>
                   <td>
                     <%= item.food.name if item.food_id.present? %>
                   </td>
+                <% else %>
+                  <td>
+                    <%= item.product.name if item.product_id.present? %>
+                  </td>
+                <% end %>
                   <td>
                       <%= number_with_precision(item.quantity, delimiter: " ", separator: "", precision: 0) %>
                   </td>
