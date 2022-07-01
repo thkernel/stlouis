@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  inventory_date: 2022-07-01 18:48:42
+  product: one
+  current_stock: 1.5
+  stock_real: 1.5
+  difference: 1.5
+  description: MyText
+  status: MyString
+  account: one
+
+two:
+  uid: MyString
+  inventory_date: 2022-07-01 18:48:42
+  product: two
+  current_stock: 1.5
+  stock_real: 1.5
+  difference: 1.5
+  description: MyText
+  status: MyString
+  account: two

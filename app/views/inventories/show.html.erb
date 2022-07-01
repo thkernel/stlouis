@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uid:</strong>
+  <%= @inventory.uid %>
+</p>
+
+<p>
+  <strong>Inventory date:</strong>
+  <%= @inventory.inventory_date %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @inventory.product %>
+</p>
+
+<p>
+  <strong>Current stock:</strong>
+  <%= @inventory.current_stock %>
+</p>
+
+<p>
+  <strong>Stock real:</strong>
+  <%= @inventory.stock_real %>
+</p>
+
+<p>
+  <strong>Difference:</strong>
+  <%= @inventory.difference %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @inventory.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @inventory.status %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @inventory.account %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

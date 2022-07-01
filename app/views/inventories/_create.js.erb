@@ -1,0 +1,11 @@
+$("ul.errors").html("");
+<% if @inventory.errors.any? %>
+  <% @inventory.errors.full_messages.each do |message| %>
+ 
+    $("ul.errors").append($('<div class="c-alert c-alert--danger" > ').html("<%= message.html_safe %> "));
+  <% end %>
+<% else %>
+  $(".inventories").html("<%= escape_javascript(render 'index') %>");
+  $("#inventory-modal").modal("hide");
+ 
+<% end %>

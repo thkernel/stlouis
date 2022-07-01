@@ -1,0 +1,21 @@
+<% @inventories.each do |inventory| %>
+  <tr>
+    
+    <td><%= inventory.inventory_date.strftime("%d/%m/%Y") %></td>
+    <td><%= inventory.product.name %></td>
+    <td><%= inventory.real_stock %></td>
+    
+    <td>
+                    <div class="action-buttons">
+                    <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i>
+'), edit_inventory_path(inventory), title: "Modifier", remote: true %>
+
+
+
+
+<%= link_to raw('<i class="fa fa-trash-o" aria-hidden="true"></i>
+'), inventory_delete_path(inventory), remote: true, title: "Supprimer", class: "delete" %>
+</div>
+</td>
+  </tr>
+<% end %>

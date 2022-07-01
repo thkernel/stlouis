@@ -7,6 +7,10 @@ end
 
 Rails.application.routes.draw do
 
+  resources :inventories do 
+    get "delete"
+  end
+  
   resources :invoice_produit_items
   resources :invoice_food_items
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_163337) do
+ActiveRecord::Schema.define(version: 2022_07_01_184842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -236,6 +236,22 @@ ActiveRecord::Schema.define(version: 2022_04_07_163337) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_gifts_on_customer_id"
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.string "uid"
+    t.datetime "inventory_date"
+    t.bigint "product_id"
+    t.float "current_stock", default: 0.0
+    t.float "real_stock", default: 0.0
+    t.float "difference", default: 0.0
+    t.text "description"
+    t.string "status"
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_inventories_on_account_id"
+    t.index ["product_id"], name: "index_inventories_on_product_id"
   end
 
   create_table "invoice_food_items", force: :cascade do |t|
@@ -688,6 +704,8 @@ ActiveRecord::Schema.define(version: 2022_04_07_163337) do
   add_foreign_key "foods", "accounts"
   add_foreign_key "foods", "food_categories"
   add_foreign_key "gifts", "customers"
+  add_foreign_key "inventories", "accounts"
+  add_foreign_key "inventories", "products"
   add_foreign_key "invoice_food_items", "foods"
   add_foreign_key "invoice_food_items", "invoices"
   add_foreign_key "invoice_product_items", "invoices"
