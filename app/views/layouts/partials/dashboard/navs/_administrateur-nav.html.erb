@@ -151,6 +151,10 @@
         </li>
 
         <li class="br-menu-item">
+          <%= link_to  raw('<i class="fa fa-tasks tx-20"></i> <span class="menu-item-label">Inventaires de stock</span>'), inventories_path, class: "br-menu-link #{current? "active", inventories_path}" %>
+        </li>
+
+        <li class="br-menu-item">
           <a href="#" class="br-menu-link with-sub">
             <i class="fa fa-cog tx-20"></i>
             <span class="menu-item-label">Paramètres</span>

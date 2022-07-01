@@ -1,6 +1,7 @@
 class InventoriesController < ApplicationController
+  authorize_resource
   #authorize_resource, except: :food
-   load_and_authorize_resource :except => [:food, :product, :paynow, :get_cancel, :post_cancel]
+   #load_and_authorize_resource :except => [:food, :product, :paynow, :get_cancel, :post_cancel]
    
   before_action :authenticate_account!
   layout "dashboard"
@@ -52,9 +53,11 @@ class InventoriesController < ApplicationController
       if @inventory.update(inventory_params)
         format.html { redirect_to inventory_url(@inventory), notice: "Inventory was successfully updated." }
         format.json { render :show, status: :ok, location: @inventory }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -72,7 +75,7 @@ class InventoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inventory
-      @inventory = Inventory.find(params[:id])
+      @inventory = Inventory.find_by(uid: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
