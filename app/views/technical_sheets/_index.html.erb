@@ -1,6 +1,6 @@
 <% @technical_sheets.each do |technical_sheet| %>
       <tr>
-       
+       <td><%= technical_sheet.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= technical_sheet.food.name %></td>
         
         <td>
